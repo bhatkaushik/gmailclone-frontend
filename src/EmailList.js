@@ -14,8 +14,16 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import PeopleIcon from "@mui/icons-material/People";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import EmailRow from "./EmailRow";
+// import { useState } from "react";
 
 const EmailList = () => {
+  // const [emails, setEmails] = useState([]);
+
+  // useEffect(() => {
+
+  //   }
+  // }, [])
+
   return (
     <div className="emailList">
       <div className="emailList_settings">
@@ -53,31 +61,41 @@ const EmailList = () => {
         <Section Icon={LocalOfferIcon} title="Promotions" color="green" />
       </div>
 
-
       <div className="emailList-List">
-        <EmailRow 
-        title="Kaushik"
-        subject="my cv"
-        description="contains my cv"
-        time="12pm"
+        {/* {emails.map(({id,data:{
+  to,subject,message,timestamp
+}})=>{ 
+  <EmailRow 
+  key={id}
+  To={to}
+  subject={subject}
+  description={message}
+  time="12pm" />
+})} */}
+
+        <EmailRow
+          To="Kaushik"
+          subject="my cv"
+          description="contains my cv"
+          time="12pm"
         />
-         <EmailRow 
-        title="Kaushik"
-        subject="my cv"
-        description="contains my cv"
-        time="12pm"
+        <EmailRow
+          To="Kaushik"
+          subject="my cv"
+          description="contains my cv"
+          time="12pm"
         />
-         <EmailRow 
-        title="Kaushik"
-        subject="my cv"
-        description="contains my cv"
-        time="12pm"
+        <EmailRow
+          To="Kaushik"
+          subject="my cv"
+          description="contains my cv"
+          time="12pm"
         />
-         <EmailRow 
-        title="Kaushik"
-        subject="my cv"
-        description="contains my cv"
-        time="12pm"
+        <EmailRow
+          To="Kaushik"
+          subject="my cv"
+          description="contains my cv"
+          time="12pm"
         />
       </div>
     </div>

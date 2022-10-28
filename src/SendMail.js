@@ -1,51 +1,67 @@
-import { Close} from "@mui/icons-material";
+import { CloseOutlined } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { useForm } from "react-hook-form";
 
 import React from "react";
 import "./SendMail.css";
+import { useDispatch } from "react-redux";
+import { closeSendMessage } from "./features/mailSlice";
 
 const SendMail = () => {
-  const { register, handleSubmit , formState:{errors} }  = useForm();
+  const dispatch = useDispatch();
 
-  const onSubmit= data =>console.log(data);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
+  const onSubmit = (data) => {
+    console.log(data);
+  dispatch(closeSendMessage());
+  }
   return (
     <div className="SendMail">
       <div className="sendmail-header">
         <h3>new Message</h3>
-        <Close className="sendmail-close" />
+        <CloseOutlined onClick={()=> dispatch(closeSendMessage())} className="sendmail-close" />
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="To"
           type="text"
-          {...register("to",{ required: true })}
+          {...register("to", { required: true })}
         />
         {errors.to && <p className="sendmail-error">To is required</p>}
         <input
           placeholder="Subject"
           type="text"
-         {...register("Subject",{ required: true })}
+          {...register("Subject", { required: true })}
         />
-        {errors.Subject && <p className="sendmail-error">Subject is required</p>}
+        {errors.Subject && (
+          <p className="sendmail-error">Subject is required</p>
+        )}
         <input
           placeholder="Message..."
           type="text"
-          {...register("Message",{ required: true })}
+          {...register("Message", { required: true })}
           className="sendmail-message"
         />
-        {errors.Message && <p className="sendmail-error">Message is required</p>}
-            <div className="sendmail-options">
-        <Button className="sendmail-send"
-        variant="contained"
-        color="primary"
-        type="submit">Send</Button>
-      </div>
+        {errors.Message && (
+          <p className="sendmail-error">Message is required</p>
+        )}
+        <div className="sendmail-options">
+          <Button
+            className="sendmail-send"
+            variant="contained"
+            color="primary"
+            type="submit"
+          >
+            Send
+          </Button>
+        </div>
       </form>
-
-  
     </div>
   );
 };
