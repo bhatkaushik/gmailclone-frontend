@@ -14,7 +14,7 @@ const [loading, setLoading] = useState(false);
 const submitHandler = async (values) => {
   try {
     setLoading(true);
-    await axios.post("http://localhost:8000/users/register", values);
+    await axios.post("https://gmail-backend-deply-kaushik.onrender.com/users/register", values);
     message.success("Registeration Successfull");
     setLoading(false);
     navigate.push("/login");
