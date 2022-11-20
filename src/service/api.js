@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const URL ='http://localhost:8000';
+const URL ='https://gmail-backend-deply-kaushik.onrender.com';
 
 export const addSentEmailData = async (data)=>{
     try{
