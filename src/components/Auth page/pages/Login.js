@@ -13,7 +13,7 @@ const Login = () => {
     try {
       setLoading(true);
       const { data } = await axios.post(
-        "http://localhost:8000/users/login",
+        "https://gmail-backend-deply-kaushik.onrender.com/users/login",
         values
       );
       setLoading(false);
